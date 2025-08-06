@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Python virtual environment
+venv/
+env/
+ENV/
+*.env
+
+# dotenv and secret files
+.env
+*.env.*
+.envrc
+
+# Kubernetes secrets or sensitive YAML
+**/secret.yaml
+**/secrets.yaml
+**/app-secret*.yaml
+*.sealed-secret.yaml
+
+# Docker-related
+*.log
+*.pid
+*.sock
+docker-compose.override.yml
+.docker/
+
+# Helm-related
+helm/flask-backend/charts/
+helm/flask-backend/tmpcharts/
+helm/flask-backend/Chart.lock
+helm/flask-backend/.helmignore
+
+# Kustomize build output
+*.bak
+kustomize.build.yaml
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Test output
+coverage/
+htmlcov/
+.pytest_cache/
+
+# Misc
+*.zip
+*.tar.gz
+*.egg-info/
+dist/
+build/
