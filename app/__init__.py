@@ -11,18 +11,23 @@ def create_app():
     app.config.from_object(get_config())
 
     # Logging
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+    )
 
     # Register routes & errors
     register_routes(app)
     register_error_handlers(app)
 
     # Prometheus metrics
-    PrometheusMetrics(app)
+    metrics = PrometheusMetrics(app)
+    metrics.info("app_info", "Application info", version="1.0.0", environment=app.config["ENV"])
 
     @app.route("/health")
     def health():
         return jsonify(status="ok")
 
     return app
+
 
