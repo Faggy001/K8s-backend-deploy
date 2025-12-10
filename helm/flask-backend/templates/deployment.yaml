@@ -23,6 +23,7 @@ spec:
           env:
             - name: ENVIRONMENT
               value: {{ .Values.env.environment | quote }}
+
             {{- if .Values.env.dbSecret }}
             - name: SECRET_KEY
               valueFrom:
@@ -36,5 +37,6 @@ spec:
                   name: {{ .Values.env.dbSecret }}
                   key: password
             {{- end }}
+
 
 
